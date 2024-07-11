@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .container{
+            position: relative;
+        }
+        #map{
+            height: 100vh;
+            width: 100vw;
+            position: absolute;
+            z-index: 1;
+        }
+        .indicator{
+            width: 165px;
+            border: 2px solid black;
+            color: black;
+            z-index: 2;
+            position: absolute;
+            margin: 56px;
+            background-color: white;
+            padding: 10px;
+
+        }
+        
+        .black-dot {
+            color: black;
+            font-size: 22px;
+        }
+        .red-dot {
+            color: red;
+            font-size: 22px;
+        }
+    </style>
+    <title>corona cases</title>
+</head>
+<body>
+    <div class="container">
+     <div id="map" ></div>
+     <div class="indicator">
+        <p>0 - 255 cases - <span class="red-dot">&#8226;</span> </p><br>
+        <p>255 - more cases - <span class="black-dot">&#8226;</span></p>
+    </div>
+</div>
+</body>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+    var map = L.map('map').setView([51.505, -0.09], 2);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+</script>
+<script src="index.js"></script>
+</html>
